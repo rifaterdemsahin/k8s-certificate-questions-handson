@@ -1,0 +1,18 @@
+# Fly.io config for the draining-demo deployed counterpart.
+# Secrets (e.g. FLY_API_TOKEN) come from Azure Key Vault — never stored here.
+app = "k8s-cert-qa-handson"
+primary_region = "lhr"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false   # keep machines up so host maintenance = migration, not scale-to-zero
+  auto_start_machines = true
+  min_machines_running = 2      # the "two nodes" idea: always one Machine serving during a restart
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

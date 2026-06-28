@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rifaterdemsahin.github.io/k8s-certificate-questions-handson/sitemap.xml

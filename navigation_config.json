@@ -1,0 +1,37 @@
+{
+  "projectMenu": [
+    { "label": "Home", "url": "index.html" },
+    { "label": "Labs", "url": "markdown_renderer.html?file=5_Symbols/README.md" },
+    { "label": "Lab 01: Draining", "url": "node-draining.html" },
+    { "label": "Questions", "url": "markdown_renderer.html?file=1_Real_Unknown/questions.md" }
+  ],
+  "debugMenu": [
+    { "label": "1. Real Unknown", "url": "1_Real_Unknown/" },
+    { "label": "   ├─ Problem Statement", "url": "1_Real_Unknown/problem_statement.md" },
+    { "label": "   ├─ Questions", "url": "1_Real_Unknown/questions.md" },
+    { "label": "   ├─ OKRs", "url": "1_Real_Unknown/okrs.md" },
+    { "label": "   ├─ Kanban Board", "url": "1_Real_Unknown/kanban.md" },
+    { "label": "2. Environment", "url": "2_Environment/" },
+    { "label": "   ├─ Architecture", "url": "2_Environment/architecture.md" },
+    { "label": "   ├─ Tools Overview", "url": "2_Environment/tools.md" },
+    { "label": "   ├─ minikube + Fly.io", "url": "2_Environment/fly_io.md" },
+    { "label": "   ├─ Azure Key Vault", "url": "2_Environment/setup_azure.md" },
+    { "label": "3. Simulation", "url": "3_Simulation/" },
+    { "label": "4. Formula", "url": "4_Formula/" },
+    { "label": "   ├─ LLM Thinking Log", "url": "4_Formula/llm_thinking_log.md" },
+    { "label": "   ├─ Decisions", "url": "4_Formula/decisions.md" },
+    { "label": "   ├─ Logging & Auto-Fix", "url": "4_Formula/logging_and_autofix.md" },
+    { "label": "5. Symbols (Labs)", "url": "5_Symbols/" },
+    { "label": "   ├─ Lab 01: Node Draining (page)", "url": "node-draining.html" },
+    { "label": "   ├─ Lab 01: Node Draining (README)", "url": "5_Symbols/01_node_draining/README.md" },
+    { "label": "6. Semblance", "url": "6_Semblance/" },
+    { "label": "7. Testing Known", "url": "7_Testing_Known/" },
+    { "label": "---", "url": "divider" },
+    { "label": "agents.md", "url": "agents.md" },
+    { "label": "prompts.md", "url": "prompts.md" },
+    { "label": "claude.md", "url": "claude.md" },
+    { "label": "gemini.md", "url": "gemini.md" },
+    { "label": "copilot.md", "url": "copilot.md" },
+    { "label": "kilocode.md", "url": "kilocode.md" }
+  ]
+}

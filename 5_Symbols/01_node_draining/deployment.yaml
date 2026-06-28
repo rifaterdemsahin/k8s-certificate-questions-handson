@@ -1,0 +1,59 @@
+# Lab 01 — sample workload used to demonstrate node draining.
+# 4 replicas so pods are spread across the 2 minikube nodes and have somewhere
+# to be rescheduled when one node is drained.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: draining-demo
+  labels:
+    app: draining-demo
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: draining-demo
+  template:
+    metadata:
+      labels:
+        app: draining-demo
+    spec:
+      # Give pods a clear graceful-shutdown window so you can watch SIGTERM -> grace -> exit.
+      terminationGracePeriodSeconds: 20
+      # Spread replicas across nodes so a single drain can't take them all down at once.
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: draining-demo
+      containers:
+        - name: web
+          image: registry.k8s.io/e2e-test-images/agnhost:2.47
+          args: ["netexec", "--http-port=8080"]
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: draining-demo
+spec:
+  selector:
+    app: draining-demo
+  ports:
+    - port: 80
+      targetPort: 8080

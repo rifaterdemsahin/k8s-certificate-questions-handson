@@ -1,0 +1,13 @@
+# PodDisruptionBudget — the mechanism that keeps the app available DURING a drain.
+# With 4 replicas and minAvailable: 3, at most 1 pod may be voluntarily disrupted
+# at a time. `kubectl drain` honours this: it evicts pods only as fast as
+# replacements become Ready, so the service never drops below 3 pods.
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: draining-demo-pdb
+spec:
+  minAvailable: 3
+  selector:
+    matchLabels:
+      app: draining-demo
