@@ -347,6 +347,13 @@ kubectl drain "$NODE" \
       <h2 class="section-title"><i class="fa-solid fa-bolt" style="color:var(--accent-green)"></i> In action — the real run</h2>
       <p>Output captured running <code>5_Symbols/01_node_draining/run.sh</code> against a 2-node minikube cluster (<code>docker</code> driver, Apple Silicon). Watch the PDB throttle eviction to one pod at a time:</p>
 
+      <div style="margin: 1.5rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: 0 12px 30px -12px rgba(0,0,0,0.6);">
+        <video width="100%" controls autoplay loop muted playsinline style="display: block;">
+          <source src="3_Simulation/cordon-drain-uncordon.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
       <div class="terminal">
         <div class="terminal-bar">
           <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
